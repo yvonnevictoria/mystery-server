@@ -1,3 +1,5 @@
+package com.mystery.backend.bookDetails
+
 import java.util.Arrays
 
 class Author(val id: String, private val firstName: String, private val lastName: String) {
