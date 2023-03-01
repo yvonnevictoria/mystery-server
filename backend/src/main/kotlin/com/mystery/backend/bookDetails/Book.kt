@@ -11,10 +11,7 @@ class Book(val id: String, private val name: String, private val pageCount: Int,
         )
 
         fun getById(id: String?): Book? {
-            return books.firstOrNull { it.id === id }
+            return books.firstOrNull { it.id == id }
         }
-
-        // Updated this function expecting the null pointer exception to be a result of the java-ish code. fix above
-        // TODO: discuss advantage of making everything nullable in schema
     }
 }
