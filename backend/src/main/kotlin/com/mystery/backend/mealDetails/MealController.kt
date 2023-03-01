@@ -25,4 +25,6 @@ class MealController {
     }
 
     // find a docker file and look at config
+    // docker run -p 8080:8080 docker.io/library/backend:0.0.1-SNAPSHOT to run. order of args matter
+    // set up db in docker. docker compose spinning up app and postgres
 }
