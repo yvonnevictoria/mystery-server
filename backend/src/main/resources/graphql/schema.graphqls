@@ -1,6 +1,7 @@
 type Query {
     bookById(id: ID): Book
     mealById(id: ID): Meal
+    meals: [Meal]
 }
 
 type Book {
@@ -23,5 +24,5 @@ type Meal {
 }
 
 type Mutation {
-    addMeal(name: String): [Meal]
+    addMeal(name: String): Meal
 }
