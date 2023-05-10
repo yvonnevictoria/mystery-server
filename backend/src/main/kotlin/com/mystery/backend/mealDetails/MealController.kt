@@ -53,4 +53,12 @@ class MealController(val mealRepository: MealRepository) {
 
     // jdbc:postgresql://db:5432/compose-postgres
     //                                  ^ this is the database name!!!
+
+    // MVP: 10 meals
+    // have backend randomly select the meals and send them all upfront
+
+    // Next steps: unlimited meals
+    // - avoid waiting for network call with each interaction
+    // - pagination: send 10 meals upfront, then trigger next api call when near the end
+    // - also send IDs of dismissed meals, so backend doesn't send them again
 }
