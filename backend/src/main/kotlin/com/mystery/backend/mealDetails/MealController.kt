@@ -7,10 +7,10 @@ import org.springframework.graphql.data.method.annotation.SchemaMapping
 import org.springframework.stereotype.Controller
 
 @Controller
-class MealController {
+class MealController(val mealRepository: MealRepository) {
     @QueryMapping
-    fun mealById(@Argument id: String?): Meal? {
-        return Meal.getById(id)
+    fun mealById(@Argument id: String): Meal? {
+        return mealRepository.getMeal(id.toInt())
     }
 
     // Custom data fetcher for description field. Whenever a meal object gets returned, run this for the desc
@@ -19,9 +19,14 @@ class MealController {
         return """${meal.name} food"""
     }
 
+    @QueryMapping
+    fun meals(): List<Meal> {
+        return mealRepository.getMeals()
+    }
+
     @MutationMapping
-    fun addMeal(@Argument name: String): List<Meal> {
-        return listOf(Meal("meal-123", name))
+    fun addMeal(@Argument name: String): Meal {
+        return mealRepository.addMeal(name, "description")
     }
 
     // find a docker file and look at config
@@ -43,4 +48,17 @@ class MealController {
     //    <groupId>org.springframework.boot</groupId>
     //    <artifactId>spring-boot-starter-data-jdbc</artifactId>
     //</dependency> ????
+
+    // run just the db via docker compose: `docker-compose up db`
+
+    // jdbc:postgresql://db:5432/compose-postgres
+    //                                  ^ this is the database name!!!
+
+    // MVP: 10 meals
+    // have backend randomly select the meals and send them all upfront
+
+    // Next steps: unlimited meals
+    // - avoid waiting for network call with each interaction
+    // - pagination: send 10 meals upfront, then trigger next api call when near the end
+    // - also send IDs of dismissed meals, so backend doesn't send them again
 }

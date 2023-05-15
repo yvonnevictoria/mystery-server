@@ -1,19 +1,8 @@
 type Query {
-    bookById(id: ID): Book
     mealById(id: ID): Meal
-}
-
-type Book {
-    id: ID
-    name: String
-    pageCount: Int
-    author: Author
-}
-
-type Author {
-    id: ID
-    firstName: String
-    lastName: String
+    meals: [Meal]
+#    randomMeals(excludedIds: [ID]): [Meal]
+#   or can we use a cursor or something?
 }
 
 type Meal {
@@ -23,5 +12,5 @@ type Meal {
 }
 
 type Mutation {
-    addMeal(name: String): [Meal]
+    addMeal(name: String): Meal
 }
