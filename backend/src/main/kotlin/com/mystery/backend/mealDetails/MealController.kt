@@ -14,19 +14,34 @@ class MealController(val mealRepository: MealRepository) {
     }
 
     // Custom data fetcher for description field. Whenever a meal object gets returned, run this for the desc
-    @SchemaMapping
-    fun description(meal: Meal): String {
-        return """${meal.name} food"""
-    }
+    //    @SchemaMapping
+    //    fun description(meal: Meal): String {
+    //        return """${meal.name} food"""
+    //    }
 
     @QueryMapping
     fun meals(): List<Meal> {
         return mealRepository.getMeals()
     }
 
+    @QueryMapping
+    fun randomMeals(): List<Meal> {
+        return mealRepository.getRandomMeals()
+    }
+
     @MutationMapping
     fun addMeal(@Argument name: String): Meal {
         return mealRepository.addMeal(name, "description")
+    }
+
+    @MutationMapping
+    fun fillMeals(): Meal {
+        return mealRepository.fillMeals()
+    }
+
+    @MutationMapping
+    fun fillMealsUsingList(): List<Meal> {
+        return mealRepository.fillMealsUsingList()
     }
 
     // find a docker file and look at config

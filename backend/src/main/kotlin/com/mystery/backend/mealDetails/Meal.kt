@@ -1,10 +1,10 @@
 package com.mystery.backend.mealDetails
 
-class Meal(val id: String, val name: String) {
+class Meal(val id: String, val name: String, val description: String) {
     companion object {
         private val meals: List<Meal> = listOf(
-            Meal("meal-1", "Noodles with carrot"),
-            Meal("meal-2", "Chicken Tagine")
+            Meal("meal-1", "Noodles with carrot", "Home food"),
+            Meal("meal-2", "Chicken Tagine", "Office food")
         )
 
         fun getById(id: String?): Meal? {

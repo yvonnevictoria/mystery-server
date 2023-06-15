@@ -1,6 +1,7 @@
 type Query {
     mealById(id: ID): Meal
     meals: [Meal]
+    randomMeals: [Meal]
 #    randomMeals(excludedIds: [ID]): [Meal]
 #   or can we use a cursor or something?
 }
@@ -13,4 +14,6 @@ type Meal {
 
 type Mutation {
     addMeal(name: String): Meal
+    fillMeals: Meal
+    fillMealsUsingList: [Meal]
 }
