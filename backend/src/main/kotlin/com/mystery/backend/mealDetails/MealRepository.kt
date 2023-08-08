@@ -118,7 +118,21 @@ class MealRepository(
             Meal("", "Rice and beans", "Office food"),
             Meal("", "Salmon Nigiri", "Japanese sushi"),
             Meal("", "Steak and veggies", "Pub food"),
-            Meal("", "Spag bol", "Pasta")
+            Meal("", "Chicken skewers with garlic sauce", "Lebanese food"),
+            Meal("", "Pasta with cream sauce", "Italian classic"),
+            Meal("", "Meat and potatoes", "Office food"),
+            Meal("", "Tuna hand roll", "Japanese sushi"),
+            Meal("", "Steak and chips", "Pub food"),
+            Meal("", "Gnocchi", "Italian classic"),
+            Meal("", "Tabbouli", "Lebanese food"),
+            Meal("", "Pizza with no cheese", "Italian classic"),
+            Meal("", "Sandwich", "Office food"),
+            Meal("", "Tempura prawn hand roll", "Japanese sushi"),
+            Meal("", "Chicken schnitzel", "Pub food"),
+            Meal("", "Falefal sandwich", "Lebanese food"),
+            Meal("", "Salad", "Office food"),
+            Meal("", "Chicken Katsu curry", "Japanese sushi"),
+            Meal("", "Spag bol", "Italian classic")
         )
 
         val savedMeals = mutableListOf<Meal>()
